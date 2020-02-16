@@ -1,0 +1,11 @@
+{% extends 'html/intro.html' %}
+{% block content %}
+<form method='POST'>
+  {% csrf_token %}
+  {{ form.email }}
+  {{ form.username }}
+  {{ form.password1 }}
+  {{ form.password2 }}
+  <button type="submit" id="save_signup" class="btn save_signup btn-primary">Submit</button>
+</form>
+{% endblock %}

@@ -1,0 +1,71 @@
+{% extends 'html/index.html' %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/detail_view.css' %}">
+<!-- <link rel="stylesheet" href="{% static 'css/nav.css' %}"> -->
+<script src="{% static 'js/detail.js' %}" type="text/javascript"></script>
+<div class="nav_bar_detail">
+  {% include 'html/navbar.html' %}
+</div>
+<div class="content">
+  {% include 'html/modal.html' %}
+</div>
+<section class="container_detail">
+  {% for data_detail in data %}
+  <section>
+  <div class="question_answer">
+      <h1 class="question_title_detail">{{ data_detail.question_title }}</h1>
+      <div class="user_align">
+        <p class="question_user">{{ data_detail.user__username }}</p>
+        <p class="detail_create">created : {{ data_detail.create }}</p>
+      </div>
+      <h1 class="detail_question">{{ data_detail.question }}</h1>
+    <div class="question_footer">
+      <p class="view_count"><span>views : </span>{{ data_detail.view }}</p>
+      <div class="like_btton_count">
+        <p class="ll">
+        {{ count_like }}
+        </p>
+      </div>
+      {% include 'html/like_unlike_button.html' %}
+      <button type="button" class="comment comment_btn" name="button">comment</button>
+
+      </div>
+    <section class="comment_section comment_none">
+      <form class="" action="index.html" method="post">
+        <input class="input_qut" type="text" name="comment" value="">
+        <div class="comment_bt">
+        <button  type="button" button-id="{{ data_detail.id }}" class="comment_ok" name="button">comment</button>
+        <button  type="button" button-id="{{ data_detail.id }}" class="comment_close" name="button">close</button>
+        </div>
+      </form>
+    </section>
+  </div>
+</section>
+
+<section class="question_commt">
+  <h2>comments :</h2>
+  <div class="comment_list">
+  </div>
+</section>
+{% endfor %}
+</section>
+
+<section>
+  <div class="answer_list">
+  </div>
+</section>
+<section class="answer_question">
+  {% for data_detail in data %}
+  <form class="answer_question_field" method="post">
+    <input class="data_detail_id" type="hidden"  id_answer='{{ data_detail.id }}' name="" value='{{ data_detail.id }}'>
+    <!-- {{ form_answer.media }} -->
+    {{ form_answer.answer }}
+    <button type="button"  id_question='{{ data_detail.id }}' class="answer_button_detail" name="button">answer</button>
+  </form>
+  {% endfor %}
+  <div class="answer_get">
+
+  </div>
+</section>
+{% endblock %}

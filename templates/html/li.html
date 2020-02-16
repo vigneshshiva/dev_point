@@ -1,0 +1,7 @@
+{% if is_liked == False %}
+  <p>{{ like_count }}</p>
+  <button type="button" class="like_button" like-id='{{ data_detail.id }}' name="button">like</button>
+{% else %}
+  <p>{{ like_count }}</p>
+  <button type="button" class="like_button" like-id='{{ data_detail.id }}' name="button">Unlike</button>
+{% endif %}

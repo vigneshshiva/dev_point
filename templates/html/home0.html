@@ -1,0 +1,28 @@
+{% extends 'html/index.html' %}
+{% load static %}
+{% block content %}
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.0.4/dist/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.14.2/TimelineMax.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.14.2/TweenMax.min.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Anton|Poppins:300 &display=swap" rel="stylesheet">
+<!-- <script type="text/javascript" src="{% static 'js/navbar.js' %}"></script> -->
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% include 'html/navbar.html' %}
+<div class="test">
+  <h1>pacchaiamman</h1>
+</div>
+<section class="home_cont">
+  <div class="hr_vertical">
+  <div class="container question_cont">
+    <div class="question" id="question_question">
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript" src="{% static 'js/home.js' %}"></script>
+</section>
+
+<div class="content">
+  {% include 'html/modal.html' %}
+</div>
+{% endblock %}

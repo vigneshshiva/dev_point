@@ -1,0 +1,57 @@
+{% extends 'html/index.html' %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/detail_view.css' %}">
+<script src="{% static 'js/detail.js' %}" type="text/javascript"></script>
+{% include 'html/navbar.html' %}
+<div class="content">
+  {% include 'html/modal.html' %}
+</div>
+<section class="container_detail">
+  {% for data_detail in data %}
+  <section>
+  <div class="question_answer">
+      <h1 class="question_title_detail">{{ data_detail.question_title }}</h1>
+      <div class="user_align">
+        <p class="question_user">{{ data_detail.user__username }}</p>
+        <p class="detail_create">created : {{ data_detail.create }}</p>
+      </div>
+      <h1 class="detail_question">{{ data_detail.question }}</h1>
+      <div class="like_button_div">
+        <p class="view_count">views:{{ data_detail.view }}</p>
+        <a class="commt"><svg class="svg-icon_comment" viewBox="0 0 20 20"><path d="M17.657,2.982H2.342c-0.234,0-0.425,0.191-0.425,0.426v10.21c0,0.234,0.191,0.426,0.425,0.426h3.404v2.553c0,0.397,0.48,0.547,0.725,0.302l2.889-2.854h8.298c0.234,0,0.426-0.191,0.426-0.426V3.408C18.083,3.174,17.892,2.982,17.657,2.982M17.232,13.192H9.185c-0.113,0-0.219,0.045-0.3,0.124l-2.289,2.262v-1.96c0-0.233-0.191-0.426-0.425-0.426H2.767V3.833h14.465V13.192z M10,7.237c-0.821,0-1.489,0.668-1.489,1.489c0,0.821,0.668,1.489,1.489,1.489c0.821,0,1.488-0.668,1.488-1.489C11.488,7.905,10.821,7.237,10,7.237 M10,9.364c-0.352,0-0.638-0.288-0.638-0.638c0-0.351,0.287-0.638,0.638-0.638c0.351,0,0.638,0.287,0.638,0.638C10.638,9.077,10.351,9.364,10,9.364 M14.254,7.237c-0.821,0-1.489,0.668-1.489,1.489c0,0.821,0.668,1.489,1.489,1.489s1.489-0.668,1.489-1.489C15.743,7.905,15.075,7.237,14.254,7.237 M14.254,9.364c-0.351,0-0.638-0.288-0.638-0.638c0-0.351,0.287-0.638,0.638-0.638c0.352,0,0.639,0.287,0.639,0.638C14.893,9.077,14.605,9.364,14.254,9.364 M5.746,7.237c-0.821,0-1.489,0.668-1.489,1.489c0,0.821,0.668,1.489,1.489,1.489c0.821,0,1.489-0.668,1.489-1.489C7.234,7.905,6.566,7.237,5.746,7.237 M5.746,9.364c-0.351,0-0.638-0.288-0.638-0.638c0-0.351,0.287-0.638,0.638-0.638c0.351,0,0.638,0.287,0.638,0.638C6.384,9.077,6.096,9.364,5.746,9.364"></path></svg></a>
+        {% include 'html/like_unlike_button.html' %}
+      </div>
+    </div>
+</section>
+<section class="question_commt">
+  <div class="comment_list">
+  </div>
+</section>
+<section class="comment_section comment_section_none">
+  <form class="" action="index.html" method="post">
+    <input class="input_answer" type="text" name="comment" value="">
+    <button  type="button" button-id="{{ data_detail.id }}" class="pacchaiamman" name="button">comment</button>
+  </form>
+</section>
+{% endfor %}
+</section>
+
+<section>
+  <div class="answer_list">
+  </div>
+</section>
+<section class="answer_question">
+  {% for data_detail in data %}
+  <form class="answer_question_field" method="post">
+    <input class="data_detail_id" type="hidden"  id_answer='{{ data_detail.id }}' name="" value='{{ data_detail.id }}'>
+    {{ form_answer.media }}
+    {{ form_answer.answer }}
+    <button type="button"  id_question='{{ data_detail.id }}' class="answer_button_detail" name="button">answer</button>
+  </form>
+  {% endfor %}
+  <div class="answer_get">
+
+  </div>
+</section>
+{% endblock %}

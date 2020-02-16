@@ -1,0 +1,197 @@
+html body{
+  background: white;
+}
+.intro_page{
+  width:100%;
+  height:100vh;
+  background:#86A181;
+}
+.navbar img{
+  width:80%;
+  margin-top:5%;
+  margin-left:22%;
+}
+.wel{
+  font-size: 2.6vw;
+}
+.welcome{
+  position: absolute;
+  color:black;
+  top:24%;
+  font-family: Poppins;
+  margin-left:3%;
+  font-size:2vw;
+}
+.wel_span_1{
+  font-family: Anton;
+  font-size: 4vw;
+  color:#FFFFFF;
+}
+.wel_span_2{
+  font-family: Anton;
+  font-size: 4vw;
+  color:#FFFFFF;
+  margin-top:-13%;
+}
+.btn_signup{
+  background: red;
+  display: flex;
+  justify-content: center;
+  color :white;
+  width:15vw;
+  height:4vw;
+  border: 2px solid transparent;
+  border-radius: 1vh;
+  font-family: Poppins;
+  font-size: 2vw;
+  outline : none!important;
+}
+.register{
+  display: flex;
+}
+.signup_link{
+  text-decoration: none;
+}
+.btn_login{
+  background:#284738;
+  width:15vw;
+  color:white;
+  height:4vw;
+  border: 2px solid transparent;
+  border-radius: 1vh;
+  margin-left:7%;
+  font-family: Poppins;
+  font-size: 2vw;
+  outline:none!important;
+}
+.svg_{
+  position: absolute;
+  top:0%;
+  right:5%;
+  width:50%;
+  height:100%;
+  /* background:black; */
+}
+html body{
+}
+svg{
+  position: absolute;
+  right:-10%;
+  width:110%;
+  height:100%;
+}
+.welcome,.register,.logo{
+  animation: dev 3s ease;
+}
+.intro_cont{
+  animation: background_green 1s ease;
+  background: black;
+}
+.modal{
+  background: black 0.5;
+}
+@keyframes background_green {
+  from{
+    background-color:#9DADA3;
+    transform: translateY(-100%);
+  }
+  to{
+    background-color:#9DADA3;
+    transform: translateY(0%);
+  }
+}
+@keyframes dev {
+  0%{
+    opacity: -5;
+  }
+  50%{
+    opacity: -2.5%;
+  }
+  100%{
+    opacity: 1;
+  }
+}
+@keyframes boy {
+  from{
+    opacity: 0;
+  }
+  to{
+    opacity: 1;
+  }
+}
+.introductioN{
+
+}
+.google_login{
+  position: absolute;
+  top:105%;
+  left:0%;
+  color:white;
+  background: #E45555;
+  width:31vw;
+  height:3vw;
+  font-size: 2vw;
+  text-decoration: none;
+  border-radius: 3px;
+  text-align: center;
+}
+.google_login:hover{
+  color:white;
+  text-decoration: none;
+}
+/* responve media query */
+@media only screen and (max-width:1200px){
+  html body{
+    width: 100%;
+  }
+  .intro_page{
+    width:100%;
+  }
+  .welcome{
+    left:0%;
+    top:30%;
+  }
+  svg{
+    position: absolute;
+    width:130%;
+    height:100%;
+  }
+}
+@media only screen and (max-width:800px){
+  .register{
+    /* background: green; */
+    height:4vh;
+  }
+  svg{
+    display: none;
+  }
+  .welcome{
+    top:20%;
+    left:19%;
+  }
+  .wel{
+    font-size:5vw;
+  }
+  .wel_span_1 , .wel_span_2{
+    font-size:7vw;
+  }
+  .btn_signup , .btn_login{
+    margin-top:0vh;
+    background: black;
+    width:28vw;
+    height:6vh;
+    font-size:3vw;
+    margin-top:-2vh;
+  }
+  .btn_login{
+    margin-right:0vw;
+  }
+  .btn_signup{
+    margin-left:0vw;
+  }
+  .google_login{
+    width:58.6vw;
+    height:5vw;
+    font-size:2.9vw;
+  }
+}

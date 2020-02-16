@@ -1,0 +1,146 @@
+/* modal Ask_question */
+#id_question_title{
+width:100%;
+height:20vh;
+border:1px solid black;
+font-family: Poppins;
+}
+#id_question{
+width:100%;
+height:50vh;
+border:1px solid black;
+font-family: Poppins;
+}
+.custom-footer{
+  text-align: center;
+}
+.custom_close{
+width:100px;
+height:40px;
+background: transparent;
+border: 2px solid #b22222;
+font-family: Anton;
+border-radius: 11px;
+text-decoration: none;
+outline: none !important;
+}
+.custom_close:hover{
+background: #b22222;
+color:white;
+}
+.savequestion{
+height:40px;
+background: transparent;
+border: none;
+font-family: Anton;
+border: 2px solid #42b883;
+border-radius: 11px;
+outline: none !important;
+}
+.savequestion:hover{
+background: #42b883;
+color:white;
+}
+.custom-content{
+  display: flex;
+  width:100%;
+  height:90vh;
+  border-radius: 3px;
+}
+.custom-title{
+  text-align: center;
+  color:black;
+  font-size:33px;
+  font-family: Anton;
+  /* padding-left:130px; */
+}
+/* ask_question */
+.custom_content_login{
+  width:100vw;
+  height:40vh;
+  display: flex;
+}
+
+#id_username,#id_email,#id_password1,#id_password2,#id_password,.email_password{
+  width:30vw;
+  margin:10px;
+  margin-left: 35px;
+  border:3px;
+  border-bottom: 1px solid black;
+  background: transparent;
+  outline: none !important;
+}
+.custom_content_signup{
+  height:50vh;
+}
+.custom_login_body{
+  display: flex;
+  flex-direction: column;
+  margin-top:5vh;
+}
+.register_here,.forgot_your_password{
+  font-size:1.5vw;
+}
+.forgot_your_password{
+  position: absolute;
+  top:28vh;
+  text-decoration: none!important;
+  left:3vw;
+  cursor: default;
+  flex-direction: column;
+}
+.register_here{
+  position: absolute;
+  top:28.5vh;
+  right:19vw;
+  text-decoration: none!important;
+  cursor: default;
+  flex-direction: column;
+}
+.got_a{
+  position: absolute;
+  top:40vh;
+  font-size: 1.5vw;
+  left:3vw;
+  cursor: default;
+  text-decoration: none!important;
+}
+.login_title{
+  position: absolute;
+  top:9vh;
+  right:5vw;
+  font-family: Anton;
+  font-size: 50px;
+  text-align: center;
+  color: green;
+}
+.signup_title{
+  position: absolute;
+  top:7vh;
+  text-align: center;
+  right:4vw;
+  font-family: Anton;
+  font-size: 50px;
+}
+.save_signup{
+  width:30.5vw;
+  height:40px;
+  font-size:20px;
+  background: green;
+  color:white;
+  font-family:anton;
+  margin-left: -16vw;
+  letter-spacing: 1vw;
+  border: 2px solid green;
+}
+.save_login{
+  width:30.5vw;
+  height:40px;
+  font-size:20px;
+  background: green;
+  color:white;
+  font-family:anton;
+  margin-left: 48px;
+  letter-spacing: 1vw;
+  border: 2px solid green;
+}

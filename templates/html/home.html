@@ -1,0 +1,143 @@
+{% extends 'html/index.html' %}
+{% load static %}
+{% load socialaccount %}
+{% block content %}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Anton|Poppins:300 &display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.0.4/dist/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.14.2/TimelineMax.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.14.2/TweenMax.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Anton|Poppins:300 &display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/nav.css' %}">
+    <script src="{% static 'js/modal.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    <style media="screen">
+    html body{
+      background: #D3D3D3;
+    }
+    </style>
+    <div class="nav_bar_home">
+      {% include 'html/navbar.html' %}
+    </div>
+<section class="home_cont">
+  <!-- <div class="hr_vertical"> -->
+  <div class="container question_cont">
+    <div class="question" id="question_question">
+    </div>
+    <div class="question_right" id="question_question">
+    </div>
+
+  </div>
+<!-- </div> -->
+{% include 'html/modal.html' %}
+</section>
+<script type="text/javascript" src="{% static 'js/home.js' %}"></script>
+<script type="text/javascript">
+    // $(document).ready(function(){
+        function ask_question_dev_point(qt,q){
+          console.log(qt)
+          console.log('question')
+          $.ajax({
+            type:'POST',
+            url:'/ask',
+            data: {'question_title':qt,'question':q,},
+            success : function(data){
+              if (data.success){
+                alert("form created")
+                question_list();
+              }
+
+            }
+          });
+        }
+        $(document).on('click','.savequestion',function(){
+          console.log('questtion clicked')
+          var question_title  = $("#id_question_title").val();
+          var question        = $("#id_question").val();
+            console.log(question)
+          ask_question_dev_point(question_title,question);
+      });
+        function question_list(){
+        $.ajax({
+          type:'POST',
+          url:'question_view',
+          success : function(data){
+            console.log('list')
+            var alt = 2
+            $.each(data.question,function (key,val){
+              if (alt % 2==0){
+                console.log(alt)
+                $('.question').append('<div class="question_cont_left"  detail-id="'+val.id+'" id="question_left_left"><div class="cont"><div class="question_cont_title"><a class="detail_id_left" href="/detail_url/'+val.id+'" detail-id="'+val.id+'">'+val.question_title+'</a></div><div class="question_cont_asker"></div><input type="hidden" class="detail_input"></input></div><div class="question-footer-left"><p1 class="create_left">'+val.create__date+'</p1><p class="asker">'+val.user__username+'</p></div></div>');
+
+              }else{
+                console.log(alt)
+                $('.question').append('<div class="question_dummy_right question_cont_right"><div class="cont"><div class="question_cont_title"><a class="detail_id" href="/detail_url/'+val.id+'" detail-id="'+val.id+'">'+val.question_title+'</a></div><input type="hidden" class="detail_input"></input></div><div class="question-footer"><p class="asker_right">'+val.user__username+'</p><p class="create_right">'+val.create__date+'</p></div></div>');
+
+              }
+              ++alt
+          });
+          }
+        });
+      }
+      question_list();
+    //0
+    $(document).ready(function(){
+      let home_nav = document.querySelector('.home-nav')
+      // $(window).on('scroll',function(){
+      //   var scroll = $(window).scrollTop();
+      //   if($(this).scrollTop()>100){
+      //     console.log('scroll');
+      //     $('.home-nav').addClass('home_nav_onscroll');
+      //   }else{
+      //     $('.home-nav').removeClass('home_nav_onscroll');
+      //   }
+      // });
+        var tl = new TimelineMax({})
+
+        $(document).on('mouseenter','.question_cont_right',function(){
+          console.log('hover in');
+          $('.question_cont_right').addClass('question_over');
+          $(this).removeClass('question_over');
+          $(this).addClass('question_right_hover');
+          $('.question_cont_left').addClass('question_left_right_hover');
+          $('.question-footer').addClass('question_footer_hover');
+          $('.create_right').addClass('create_right_hover');
+          $('.detail_id').addClass('detail_id_hover');
+        });
+        $(document).on('mouseleave','.question_cont_right',function(){
+          console.log('hover right');
+          $('.question_cont_right').removeClass('question_over');
+          $(this).removeClass('question_right_hover');
+          $('.question_cont_left').removeClass('question_left_right_hover');
+          $('.question-footer').removeClass('question_footer_hover');
+          $('.create_right').removeClass('create_right_hover');
+          $('.detail_id').removeClass('detail_id_hover');
+        });
+
+        $(document).on('mouseenter','.question_cont_left',function(){
+          console.log('hover in');
+          $('.question_cont_left').addClass('question_over');
+          $(this).removeClass('question_over');
+          $(this).addClass('question_body_left_hover');
+          $('.question_cont_right').addClass('question_body_left_right_hover');
+          $('.question-footer-left').addClass('question_footer_left_hover')
+          $('.asker').addClass('asker_hover');
+
+        });
+        $(document).on('mouseleave','.question_cont_left',function(){
+          console.log('hover left');
+          $('.question_cont_left').removeClass('question_over');
+          $(this).removeClass('question_body_left_hover');
+          $('.question_cont_right').removeClass('question_body_left_right_hover');
+          $('.question-footer-left').removeClass('question_footer_left_hover')
+          $('.asker').removeClass('asker_hover');
+        });
+
+  });
+
+
+</script>
+{% endblock %}

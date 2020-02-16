@@ -1,0 +1,92 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/modal.css' %}">
+<div class="modal custom fade" id="question_model_open">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content  custom-content">
+      <div class="custom-header">
+        <h5 class="modal-title custom-title" id="exampleModalLongTitle">Ask_your_question</h5>
+      </div>
+      <form method="POST" enctype="multipart/form-datas" id = "ask_question_form">
+        <div class="modal-body custom-body">
+          {{ form_ans.media}}
+          {{ form_ans.question_title }}
+          {{ form_ans.question }}
+        </div>
+        <div class="custom-footer">
+          <button type="button" class="custom_close" data-dismiss="modal">Close</button>
+          <button type="button" class="savequestion">Save changes</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="modal login_modal custom fade" id="login_model_open">
+  <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+    <div class="modal-content custom_content_login">
+      <form method='POST'>
+        <div class="login_close">
+      <div class="custom-header custom_login_title">
+        <h5 class="modal-title login_title" id="exampleModalLongTitle">Login<br>Here</h5>
+      </div>
+      <div class="modal-body login custom_login_body">
+        {{ form.email }}
+        {{ form.password }}
+        <a class="forgot_your_password" >Forgot your password</a><a class='register_here' data-toggle="modal" data-dismiss="modal" data-target='#signup_model_open'>Create a new user</a>
+      </div>
+      <div class="custom-footer-login">
+        <button type="button" class="save_login">Login</button>
+      </div>
+      </div>
+      <div class="email_valid">
+      <div class="custom-header custom_login">
+        <h5 class="modal-title custom-title" id="exampleModalLongTitle">Enter A Valid Email</h5>
+      </div>
+      <div class="modal-body passowrd custom-body">
+        <input type="email" name="" class="email_password" value="">
+      </div>
+      <div class="custom-footer">
+        <button type="button" class="send_email">email</button>
+      </div>
+    </div>
+    <div class="password_otp">
+    <div class="custom-header otp custom_login">
+    <h5 class="modal-title custom-title" id="exampleModalLongTitle">Password Reset</h5>
+    </div>
+    <div class="modal-body custom-body">
+      <input type="text" class="otp_enter" name="" value="">
+      <input type="password" class="passoword_1" name="" value="">
+      <input type="password" class="password_2" name="" value="">
+    </div>
+    <div class="custom-footer">
+    <button type="button" class="password_reset">password_reset</button>
+    </div>
+    </div>
+      </form>
+    </div>
+  </div>
+</div>
+<!-- <div class="content"> -->
+<div class="modal custom fade" id="signup_model_open">
+  <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+    <div class="modal-content custom_content_signup">
+      <form method='POST'>
+      <div class="signup_close">
+      <div class="custom-header custom_signup_title">
+        <h5 class="modal-title signup_title" id="exampleModalLongTitle">Register<br>Here</h5>
+      </div>
+        <div class="modal-body signup custom-body">
+          {{ user.email }}
+          {{ user.username }}
+          {{ user.password1 }}
+          {{ user.password2 }}
+          <a class='got_a' data-dismiss="modal" data-toggle="modal" data-target='#login_model_open'>Alredy have a account LOGIN HERE </a>
+        </div>
+        <div class="custom-footer">
+          <button type="button" class="save_signup">Register</button>
+        </div>
+        </div>
+        </form>
+      </div>
+    </div>
+  </div>

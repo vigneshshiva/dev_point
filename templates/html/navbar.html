@@ -1,0 +1,37 @@
+{% extends 'html/index.html' %}
+{% load static %}
+{% block content %}
+<link href="https://fonts.googleapis.com/css?family=Anton|Poppins:300 &display=swap" rel="stylesheet">
+<script src="{% static 'js/navbar.js' %}"></script>
+<link rel="stylesheet" href="{% static 'css/nav.css' %}">
+<div class="nav_bar_home">
+  <nav class=" home-nav">
+    <div class="logo-home dummy_logo" id='triangle-toleft'>
+      <img class="dummy-img imgdumy" src="{% static 'img/logo.png' %}" alt="">
+    </div>
+    <div class="nav-slice_li">
+    <div class="home-menu dummy_home_menu">
+      <ul class="home-menu-left">
+        <li class='Ask_a_question'><button type="button"  class='ask question_model' data-toggle="modal" data-target='#question_model_open' name="button">Ask_a_question</button></li>
+        <li class='help_dev'><button type="button" class='ans question_model' name="button">Dev_blog</button></li>
+        {% if request.user.is_authenticated %}
+          <li class="hamp_log"><button type="button" class="logout question_model" name="button"><a class="logout_link" href="logout">Sign_out</a></button></li>
+          <li><button type="button" class="username question_model" name="button">{{ request.user.username }}</button></li>
+        {% else %}
+          <li><button type="button"  class='question_model' data-toggle="modal" data-target='#login_model_open' name="button">Login</button></li>
+        {% endif %}
+        <button type="button" class="close" aria-label="Close">
+          <span>&times;</span>
+        </button>
+      </ul>
+      {% include 'html/modal.html' %}
+
+      <div class="pacchaiamman line">
+        <div class="line_1"></div>
+        <h1>menu</h1>
+        <div class="line_3"></div>
+      </div>
+    </div>
+  </nav>
+</div>
+{% endblock %}
