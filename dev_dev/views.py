@@ -172,15 +172,4 @@ def detail_url_view(request,pk):
 #     send_mail(subject,message,email_from,recipient_list)
 #     print('message')
 #     return JsonResponse({'success':'success'})
-@csrf_exempt
-def pacchaiamman(request):
-    green = request.POST['val']
-    subject = 'pacchaiamman potri'
-    message = ' pacchaiamman manathieswara potri'
-    email =  EMAIL_HOST_USER
-    print(green)
-    recipient_list = list(green)
-    print(type(recipient_list))
-    send_mail(subject,message,email,recipient_list)
-    print(send_mail)
-    return JsonResponse({'success':'success'})
+
