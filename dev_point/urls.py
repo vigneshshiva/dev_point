@@ -8,7 +8,7 @@ urlpatterns = [
     path('',include('custom_user_model.urls')),
     path('accounts/',include('allauth.urls')),
     # path('modal',views.modal),
-    path('intro',views.intro),
+    path('',views.intro),
     path('home',views.home,name='home'),
     path('ask',views.ask_question_view),
     path('question_view',views.question_view),
